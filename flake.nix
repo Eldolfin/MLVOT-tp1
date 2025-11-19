@@ -15,9 +15,10 @@
             # opencv-pythonGtk
             opencv-python
             numpy
-            ipython
 
             # dev tools
+            ipython
+            ipdb
             ruff
             ty
             python-lsp-server
