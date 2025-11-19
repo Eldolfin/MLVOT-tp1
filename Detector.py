@@ -1,8 +1,8 @@
-'''
-    File name         : detectors.py
-    Description       : Object detector used for detecting the objects in a video /image
-    Python Version    : 3.7
-'''
+"""
+File name         : detectors.py
+Description       : Object detector used for detecting the objects in a video /image
+Python Version    : 3.7
+"""
 
 # Import python libraries
 import numpy as np
@@ -23,7 +23,7 @@ def detect(frame):
     #cv2.imshow('img_thresh', img_thresh)
 
     # Find contours
-    _ , contours, _= cv2.findContours(img_thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(img_thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     # Set the accepted minimum & maximum radius of a detected object
     min_radius_thresh= 3
@@ -38,7 +38,8 @@ def detect(frame):
         #Take only the valid circle(s)
         if (radius > min_radius_thresh) and (radius < max_radius_thresh):
             centers.append(np.array([[x], [y]]))
-    cv2.imshow('contours', img_thresh)
+    # cv2.imshow('contours', img_thresh)
+    # cv2.imwrite('contours.jpg', img_thresh)
     return centers
 
 
